@@ -58,7 +58,7 @@ export default function Header() {
                     <ul className="hidden md:flex items-center gap-6">
                         {[
                             { name: 'Home', href: '/' },
-                            { name: 'Safari Packages', href: '/packages' },
+                            { name: 'Safari', href: '/packages' },
                             { name: 'Destinations', href: '/destinations' },
                             { name: 'Hotels & Lodges', href: '/accommodations' },
                             { name: 'About', href: '/about' },

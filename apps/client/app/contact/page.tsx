@@ -87,7 +87,7 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
                                         <p className="text-gray-600 text-sm">
-                                            +254 123 456 789<br />
+                                            +254 702 075 876<br />
                                             Available 24/7
                                         </p>
                                     </div>
