@@ -24,11 +24,11 @@ import { destinations } from '../data/destinations';
 
 export default function DestinationsPage() {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <Header />
 
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-emerald-600 to-green-600 text-white py-24 mt-16">
+            <section className="relative bg-gradient-to-r from-gray-700 to-gray-800 text-white py-24 mt-16">
                 <div className="container-custom">
                     <div className="max-w-3xl">
                         <h1 className="heading-primary text-white mb-6">
@@ -47,7 +47,7 @@ export default function DestinationsPage() {
             <section className="section">
                 <div className="container-custom">
                     <div className="text-center mb-12">
-                        <h2 className="heading-secondary text-gray-900 mb-4">
+                        <h2 className="heading-secondary text-gray-900 dark:text-white mb-4">
                             Must-Visit Safari Parks
                         </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -65,11 +65,11 @@ export default function DestinationsPage() {
             </section>
 
             {/* Why Visit Kenya */}
-            <section className="section bg-white">
+            <section className="section bg-white dark:bg-gray-950">
                 <div className="container-custom">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="heading-secondary text-gray-900 mb-6">
+                            <h2 className="heading-secondary text-gray-900 dark:text-white mb-6">
                                 Why Kenya is Africa's Premier Safari Destination
                             </h2>
                             <div className="space-y-4">
@@ -92,14 +92,14 @@ export default function DestinationsPage() {
                                     },
                                 ].map((item, index) => (
                                     <div key={index} className="flex gap-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center text-white font-bold">
                                             {index + 1}
                                         </div>
                                         <div>
-                                            <h3 className="font-heading font-semibold text-lg text-gray-900 mb-1">
+                                            <h3 className="font-heading font-semibold text-lg text-gray-900 dark:text-white mb-1">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-gray-600">{item.description}</p>
+                                            <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -119,7 +119,7 @@ export default function DestinationsPage() {
                                     </svg>
                                     <div className="text-2xl font-bold text-gray-900">4.9/5</div>
                                 </div>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-600 dark:text-gray-300">
                                     Based on 10,000+ traveler reviews
                                 </p>
                             </div>
@@ -129,7 +129,7 @@ export default function DestinationsPage() {
             </section>
 
             {/* CTA */}
-            <section className="section bg-gradient-to-r from-amber-600 to-orange-600 text-white">
+            <section className="section bg-gradient-to-r from-gray-700 to-gray-800 text-white">
                 <div className="container-custom text-center">
                     <h2 className="heading-secondary text-white mb-4">
                         Ready to Explore Kenya's Wildlife?

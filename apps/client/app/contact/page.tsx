@@ -34,11 +34,11 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <Header />
 
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-amber-600 to-orange-600 text-white py-24 mt-16">
+            <section className="relative bg-gradient-to-r from-gray-700 to-gray-800 text-white py-24 mt-16">
                 <div className="container-custom">
                     <div className="max-w-3xl">
                         <h1 className="heading-primary text-white mb-6">
@@ -58,20 +58,20 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Contact Info */}
                         <div className="lg:col-span-1">
-                            <h2 className="heading-tertiary text-gray-900 mb-6">
+                            <h2 className="heading-tertiary text-gray-900 dark:text-white mb-6">
                                 Get in Touch
                             </h2>
                             <div className="space-y-6">
                                 <div className="flex gap-4">
-                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center text-white">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center text-white">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-gray-900 mb-1">Visit Us</h3>
-                                        <p className="text-gray-600 text-sm">
+                                        <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Visit Us</h3>
+                                        <p className="text-gray-600 dark:text-gray-300 text-sm">
                                             123 Safari Street<br />
                                             Nairobi, Kenya 00100
                                         </p>
@@ -79,14 +79,14 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex gap-4">
-                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center text-white">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center text-white">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
-                                        <p className="text-gray-600 text-sm">
+                                        <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Call Us</h3>
+                                        <p className="text-gray-600 dark:text-gray-300 text-sm">
                                             +254 702 075 876<br />
                                             Available 24/7
                                         </p>
@@ -94,14 +94,14 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex gap-4">
-                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center text-white">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center text-white">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
-                                        <p className="text-gray-600 text-sm">
+                                        <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Email Us</h3>
+                                        <p className="text-gray-600 dark:text-gray-300 text-sm">
                                             info@safariadventureskenya.com<br />
                                             Response within 24 hours
                                         </p>
@@ -109,11 +109,11 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className="mt-8 p-6 bg-emerald-50 rounded-xl">
+                            <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800/50 rounded-xl">
                                 <h3 className="font-heading font-semibold text-gray-900 mb-3">
                                     Office Hours
                                 </h3>
-                                <div className="space-y-2 text-sm text-gray-700">
+                                <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                                     <div className="flex justify-between">
                                         <span>Monday - Friday:</span>
                                         <span className="font-medium">8:00 AM - 6:00 PM</span>
@@ -133,12 +133,12 @@ export default function ContactPage() {
                         {/* Contact Form */}
                         <div className="lg:col-span-2">
                             <div className="card p-8">
-                                <h2 className="heading-tertiary text-gray-900 mb-6">
+                                <h2 className="heading-tertiary text-gray-900 dark:text-white mb-6">
                                     Request a Free Quote
                                 </h2>
 
                                 {submitted && (
-                                    <div className="mb-6 p-4 bg-emerald-50 border-l-4 border-emerald-600 text-emerald-800 rounded">
+                                    <div className="mb-6 p-4 bg-gray-100 border-l-4 border-emerald-600 text-emerald-800 rounded">
                                         Thank you for your inquiry! We'll get back to you within 24 hours.
                                     </div>
                                 )}
@@ -146,7 +146,7 @@ export default function ContactPage() {
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Full Name *
                                             </label>
                                             <input
@@ -162,7 +162,7 @@ export default function ContactPage() {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Email Address *
                                             </label>
                                             <input
@@ -180,7 +180,7 @@ export default function ContactPage() {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Phone Number
                                             </label>
                                             <input
@@ -195,7 +195,7 @@ export default function ContactPage() {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-2">
+                                            <label htmlFor="destination" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Preferred Destination
                                             </label>
                                             <select
@@ -218,7 +218,7 @@ export default function ContactPage() {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="travelDates" className="block text-sm font-medium text-gray-700 mb-2">
+                                            <label htmlFor="travelDates" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Preferred Travel Dates
                                             </label>
                                             <input
@@ -233,7 +233,7 @@ export default function ContactPage() {
                                         </div>
 
                                         <div>
-                                            <label htmlFor="groupSize" className="block text-sm font-medium text-gray-700 mb-2">
+                                            <label htmlFor="groupSize" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Group Size
                                             </label>
                                             <input
@@ -249,7 +249,7 @@ export default function ContactPage() {
                                     </div>
 
                                     <div>
-                                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                             Additional Information
                                         </label>
                                         <textarea
@@ -267,7 +267,7 @@ export default function ContactPage() {
                                         Send Inquiry
                                     </Button>
 
-                                    <p className="text-sm text-gray-600 text-center">
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                                         By submitting this form, you agree to our privacy policy and terms of service.
                                     </p>
                                 </form>

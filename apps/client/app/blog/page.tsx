@@ -77,11 +77,11 @@ const blogPosts = [
 
 export default function BlogPage() {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <Header />
 
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-emerald-600 to-green-600 text-white py-24 mt-16">
+            <section className="relative bg-gradient-to-r from-gray-700 to-gray-800 text-white py-24 mt-16">
                 <div className="container-custom">
                     <div className="max-w-3xl">
                         <h1 className="heading-primary text-white mb-6">
@@ -109,19 +109,19 @@ export default function BlogPage() {
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                         <div className="absolute top-4 left-4">
-                                            <span className="badge badge-secondary">{post.category}</span>
+                                            <span className="badge bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200">{post.category}</span>
                                         </div>
                                     </div>
 
                                     <div className="p-6">
-                                        <h2 className="heading-tertiary text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                                        <h2 className="heading-tertiary text-gray-900 dark:text-white mb-3 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                                             {post.title}
                                         </h2>
-                                        <p className="text-gray-600 mb-4 line-clamp-3">
+                                        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                                             {post.excerpt}
                                         </p>
 
-                                        <div className="flex items-center justify-between text-sm text-gray-500 border-t border-gray-200 pt-4">
+                                        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 pt-4">
                                             <span>{post.date}</span>
                                             <span>{post.readTime}</span>
                                         </div>

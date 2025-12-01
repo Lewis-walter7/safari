@@ -27,7 +27,7 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
             </div>
 
             {/* Quote */}
-            <blockquote className="text-gray-700 mb-6 italic">
+            <blockquote className="text-gray-700 dark:text-gray-300 mb-6 italic">
                 "{testimonial.text}"
             </blockquote>
 
@@ -37,8 +37,8 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
                     {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.country}</div>
+                    <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{testimonial.country}</div>
                 </div>
             </div>
         </div>

@@ -124,20 +124,27 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
+                </div>
 
-                    {/* Bottom Bar */}
-                    <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-sm">
-                            © {currentYear} Safari Adventures Kenya. All rights reserved.
-                        </p>
-                        <div className="flex gap-6 text-sm">
-                            <Link href="/privacy-policy" className="hover:text-amber-600 transition-colors">
-                                Privacy Policy
-                            </Link>
-                            <Link href="/terms" className="hover:text-amber-600 transition-colors">
-                                Terms & Conditions
-                            </Link>
-                        </div>
+                {/* Bottom Bar */}
+                <div className="border-t border-gray-800 pt-8">
+                    {/* Copyright */}
+                    <p className="text-sm text-center mb-4">
+                        © {currentYear} Safari Adventures Kenya. All rights reserved.
+                    </p>
+                    {/* Legal Links */}
+                    <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm">
+                        <Link href="/privacy-policy" className="hover:text-amber-600 transition-colors">
+                            Privacy Policy
+                        </Link>
+                        <span className="text-gray-600">•</span>
+                        <Link href="/terms-and-conditions" className="hover:text-amber-600 transition-colors">
+                            Terms & Conditions
+                        </Link>
+                        <span className="text-gray-600">•</span>
+                        <Link href="/refund-policy" className="hover:text-amber-600 transition-colors">
+                            Refund Policy
+                        </Link>
                     </div>
                 </div>
             </div>

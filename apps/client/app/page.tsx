@@ -104,14 +104,14 @@ export default function HomePage() {
       <Hero />
 
       {/* Featured Safari Packages */}
-      <section id="packages" className="section bg-gray-50">
+      <section id="packages" className="section bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <div className="text-center mb-12 animate-slide-up">
             <span className="badge badge-primary mb-4">Popular Packages</span>
-            <h2 className="heading-secondary text-gray-900 mb-4">
+            <h2 className="heading-secondary text-gray-900 dark:text-white mb-4">
               Featured Kenya Safari Packages
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Discover our carefully curated safari experiences designed to showcase the best of Kenya's wildlife and landscapes.
             </p>
           </div>
@@ -133,13 +133,13 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-gray-950">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="heading-secondary text-gray-900 mb-4">
+            <h2 className="heading-secondary text-gray-900 dark:text-white mb-4">
               Why Choose Safari Adventures Kenya?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               We are Kenya's leading safari tour operator, trusted by thousands of travelers worldwide.
             </p>
           </div>
@@ -184,13 +184,13 @@ export default function HomePage() {
               },
             ].map((item, index) => (
               <div key={index} className="text-center group">
-                <div className="inline-flex items-center justify-center w-20 h-20 mb-4 text-amber-600 gradient-primary rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-white">{item.icon}</div>
+                <div className="inline-flex items-center justify-center w-20 h-20 mb-4 text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-current">{item.icon}</div>
                 </div>
-                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-heading font-semibold text-gray-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
               </div>
             ))}
           </div>
@@ -198,14 +198,14 @@ export default function HomePage() {
       </section>
 
       {/* Top Destinations */}
-      <section className="section bg-gray-50">
+      <section className="section bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="badge badge-secondary mb-4">Must-Visit Places</span>
-            <h2 className="heading-secondary text-gray-900 mb-4">
+            <h2 className="heading-secondary text-gray-900 dark:text-white mb-4">
               Top Kenya Safari Destinations
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Explore Kenya's most iconic national parks and wildlife reserves.
             </p>
           </div>
@@ -227,13 +227,13 @@ export default function HomePage() {
       </section>
 
       {/* Customer Testimonials */}
-      <section className="section bg-white">
+      <section className="section bg-white dark:bg-gray-950">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="heading-secondary text-gray-900 mb-4">
+            <h2 className="heading-secondary text-gray-900 dark:text-white mb-4">
               What Our Travelers Say
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Real experiences from real travelers who've explored Kenya with us.
             </p>
           </div>
@@ -247,13 +247,13 @@ export default function HomePage() {
       </section>
 
       {/* FAQs */}
-      <section className="section bg-gray-50">
+      <section className="section bg-gray-50 dark:bg-gray-900">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="heading-secondary text-gray-900 mb-4">
+            <h2 className="heading-secondary text-gray-900 dark:text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 dark:text-gray-300">
               Everything you need to know about planning your Kenya safari.
             </p>
           </div>
@@ -264,10 +264,10 @@ export default function HomePage() {
                 key={index}
                 className="card p-6 cursor-pointer group"
               >
-                <summary className="font-heading font-semibold text-lg text-gray-900 list-none flex items-center justify-between">
+                <summary className="font-heading font-semibold text-lg text-gray-900 dark:text-white list-none flex items-center justify-between">
                   {faq.question}
                   <svg
-                    className="w-6 h-6 text-amber-600 group-open:rotate-180 transition-transform"
+                    className="w-6 h-6 text-gray-600 dark:text-gray-400 group-open:rotate-180 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -275,15 +275,15 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">{faq.answer}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="section bg-gradient-to-r from-amber-600 to-orange-600 text-white">
+      {/* CTA */}
+      <section id="contact" className="section bg-gradient-to-r from-gray-700 to-gray-800 text-white">
         <div className="container-custom text-center">
           <h2 className="heading-secondary text-white mb-4">
             Ready for Your Kenya Safari Adventure?
@@ -293,16 +293,16 @@ export default function HomePage() {
             Get a free, personalized quote today!
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/contact">
-              <Button variant="outline" className="bg-white text-amber-600 hover:bg-gray-100 border-white text-lg px-8 py-4 font-bold shadow-md">
-                Get Free Quote
+            <Link href="#packages">
+              <Button variant="outline" className="bg-white text-gray-900 hover:bg-gray-100 border-white text-lg px-8 py-4 font-bold shadow-md">
+                Browse Safari Packages
               </Button>
             </Link>
-            <a href="tel:+254123456789">
-              <Button variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-amber-600 text-lg px-8 py-4 font-bold shadow-md transition-all">
-                Call +254 123 456 789
+            <Link href="/contact">
+              <Button variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4 font-bold shadow-md transition-all">
+                Contact Our Team
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

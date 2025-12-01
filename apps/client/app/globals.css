@@ -54,16 +54,16 @@ html {
   }
 
   .btn-outline {
-    @apply border-2 border-amber-600 text-amber-600 bg-white hover:bg-amber-600 hover:text-white hover:shadow-lg focus:ring-amber-500;
+    @apply border-2 border-amber-600 text-amber-600 bg-white hover:bg-amber-600 hover:text-white hover:shadow-lg focus:ring-amber-500 dark:bg-gray-800 dark:border-amber-500 dark:text-amber-400 dark:hover:bg-amber-600 dark:hover:text-white;
   }
 
   /* Card Components */
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl dark:shadow-gray-900/50;
   }
 
   .card-glass {
-    @apply bg-white/80 backdrop-blur-md rounded-xl shadow-lg border border-white/20;
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-xl shadow-lg border border-white/20 dark:border-gray-700/50;
   }
 
   /* Container */
@@ -95,25 +95,25 @@ html {
   }
 
   .badge-primary {
-    @apply bg-amber-100 text-amber-800;
+    @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400;
   }
 
   .badge-secondary {
-    @apply bg-emerald-100 text-emerald-800;
+    @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400;
   }
 
   /* Input Styles */
   .input {
-    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all duration-200 outline-none;
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:border-amber-500 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-500/20 dark:focus:ring-amber-400/20 transition-all duration-200 outline-none;
   }
 
   .textarea {
-    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all duration-200 outline-none resize-y min-h-[120px];
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:border-amber-500 dark:focus:border-amber-400 focus:ring-2 focus:ring-amber-500/20 dark:focus:ring-amber-400/20 transition-all duration-200 outline-none resize-y min-h-[120px];
   }
 
   /* Link Styles */
   .link {
-    @apply text-amber-600 hover:text-amber-700 transition-colors duration-200 font-medium;
+    @apply text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors duration-200 font-medium;
   }
 }
 

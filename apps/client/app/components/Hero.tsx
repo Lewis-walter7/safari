@@ -1,28 +1,114 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Button from './Button';
 
+const slides = [
+    {
+        image: '/images/hero/maasaimaralions.png',
+        location: 'Maasai Mara National Reserve',
+        tagline: 'Witness the Great Migration',
+        link: '/destinations/masai-mara',
+    },
+    {
+        image: '/images/hero/amboseli.png',
+        location: 'Amboseli National Park',
+        tagline: 'Elephants with Kilimanjaro backdrop',
+        link: '/destinations/amboseli',
+    },
+    {
+        image: '/images/hero/lakenakuru.png',
+        location: 'Lake Nakuru National Park',
+        tagline: 'Flamingos and rhino sanctuary',
+        link: '/destinations/lake-nakuru',
+    },
+    {
+        image: '/images/hero/ngorongoro.png',
+        location: 'Ngorongoro Crater',
+        tagline: 'Africa\'s Garden of Eden',
+        link: '/destinations/ngorongoro',
+    },
+];
+
 export default function Hero() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsTransitioning(true);
+            setTimeout(() => {
+                setCurrentSlide((prev) => (prev + 1) % slides.length);
+                setIsTransitioning(false);
+            }, 500);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const goToPrevSlide = () => {
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+            setIsTransitioning(false);
+        }, 500); // Match the transition duration
+    };
+
+    const goToNextSlide = () => {
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+            setIsTransitioning(false);
+        }, 500); // Match the transition duration
+    };
+
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src="/images/hero.jpg"
-                    alt="Stunning Kenya safari landscape with elephants and acacia trees at sunset"
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 gradient-overlay"></div>
-            </div>
+            {/* Carousel Images */}
+            {slides.map((slide, index) => (
+                <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                        }`}
+                >
+                    <img
+                        src={slide.image}
+                        alt={`${slide.location} - ${slide.tagline}`}
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Dark overlay for contrast */}
+                    <div className="absolute inset-0 bg-black/30"></div>
+                </div>
+            ))}
 
-            {/* Content */}
+            {/* Navigation Arrows */}
+            <button
+                onClick={goToPrevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/20 hover:bg-white/40 rounded-full text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 hidden md:block"
+                aria-label="Previous slide"
+            >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button
+                onClick={goToNextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/20 hover:bg-white/40 rounded-full text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 hidden md:block"
+                aria-label="Next slide"
+            >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            {/* Main Hero Content */}
             <div className="container-custom relative z-10 text-center text-white animate-fade-in pt-32">
                 <h1 className="heading-primary mb-6 text-white drop-shadow-lg">
-                    Discover Unforgettable Kenya Safari Packages
+                    Your African Safari Adventure Awaits
                 </h1>
                 <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto font-light drop-shadow-md">
-                    Experience the magic of Masai Mara tours, witness the Great Migration,
-                    and explore Africa's most spectacular wildlife safaris with Kenya's trusted tour operator.
+                    Embark on an unforgettable journey through the heart of Africa. Discover breathtaking wildlife, stunning landscapes, and rich cultural experiences.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
@@ -32,7 +118,7 @@ export default function Hero() {
                         </Button>
                     </Link>
                     <Link href="#contact">
-                        <Button variant="outline" className="text-lg px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-amber-600 shadow-lg hover:scale-105 transition-all font-semibold">
+                        <Button variant="outline" className="text-lg px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-gray-900 shadow-lg hover:scale-105 transition-all font-semibold">
                             Talk to an Expert
                         </Button>
                     </Link>
@@ -61,8 +147,40 @@ export default function Hero() {
                 </div>
             </div>
 
+            {/* Floating Info Card - Bottom Right on Desktop, Bottom Center on Mobile */}
+            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 left-8 md:left-auto z-20 max-w-sm">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl transform transition-all duration-500 hover:scale-105 hover:bg-white/15">
+                    <h3 className="text-white text-2xl font-heading font-bold mb-2">
+                        {slides[currentSlide].location}
+                    </h3>
+                    <p className="text-white/90 text-sm mb-4">
+                        {slides[currentSlide].tagline}
+                    </p>
+                    <Link href={slides[currentSlide].link}>
+                        <button className="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                            Read More
+                        </button>
+                    </Link>
+                </div>
+            </div>
+
+            {/* Slide Indicators */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-2">
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide
+                            ? 'bg-white w-8'
+                            : 'bg-white/50 hover:bg-white/75'
+                            }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
+            </div>
+
             {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <div className="absolute bottom-20 md:bottom-24 left-1/2 transform -translate-x-1/2 z-10 animate-bounce hidden md:block">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
