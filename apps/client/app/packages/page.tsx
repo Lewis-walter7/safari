@@ -1,28 +1,36 @@
-import React from 'react';
-import type { Metadata } from 'next';
+'use client';
+
+import React, { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SafariPackageCard from '../components/SafariPackageCard';
-
-export const metadata: Metadata = {
-    title: 'Kenya Safari Packages - Tailored Wildlife Tours',
-    description:
-        'Browse our comprehensive range of Kenya safari packages. From Masai Mara tours to Amboseli safaris, find the perfect African wildlife adventure for you. Expert guides, best prices, unforgettable experiences.',
-    keywords: [
-        'Kenya safari packages',
-        'Masai Mara safari tours',
-        'Amboseli safari',
-        'Kenya wildlife tours',
-        'African safari packages',
-        'best Kenya safaris',
-        'luxury Kenya safari',
-        'budget Kenya safari',
-    ],
-};
-
 import { packages } from '../data/packages';
 
 export default function PackagesPage() {
+    const [selectedDuration, setSelectedDuration] = useState('All Durations');
+
+    const filteredPackages = useMemo(() => {
+        if (selectedDuration === 'All Durations') {
+            return packages;
+        }
+
+        return packages.filter((pkg) => {
+            const days = parseInt(pkg.duration.split(' ')[0]);
+
+            if (selectedDuration === '3-4 Days') {
+                return days >= 3 && days <= 4;
+            }
+            if (selectedDuration === '5-7 Days') {
+                return days >= 5 && days <= 7;
+            }
+            if (selectedDuration === '8+ Days') {
+                return days >= 8;
+            }
+
+            return true;
+        });
+    }, [selectedDuration]);
+
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <Header />
@@ -52,47 +60,59 @@ export default function PackagesPage() {
                                 All Safari Packages
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300">
-                                {packages.length} amazing safari experiences available
+                                {filteredPackages.length} amazing safari experiences available
                             </p>
                         </div>
 
-                        {/* Filters  - Static for now */}
+                        {/* Filters */}
                         <div className="flex flex-wrap gap-3">
-                            <select className="input py-2 px-4 pr-8 rounded-lg">
+                            <select
+                                value={selectedDuration}
+                                onChange={(e) => setSelectedDuration(e.target.value)}
+                                className="input py-2 px-4 pr-8 rounded-lg cursor-pointer"
+                            >
                                 <option>All Durations</option>
                                 <option>3-4 Days</option>
                                 <option>5-7 Days</option>
                                 <option>8+ Days</option>
                             </select>
-                            <select className="input py-2 px-4 pr-8 rounded-lg">
-                                <option>All Prices</option>
-                                <option>Under $1,000</option>
-                                <option>$1,000 - $2,000</option>
-                                <option>$2,000+</option>
-                            </select>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {packages.map((pkg) => (
+                        {filteredPackages.map((pkg) => (
                             <SafariPackageCard key={pkg.id} pkg={pkg} />
                         ))}
                     </div>
 
+                    {filteredPackages.length === 0 && (
+                        <div className="text-center py-12">
+                            <p className="text-xl text-gray-600 dark:text-gray-400">
+                                No packages found matching your criteria. Please try a different duration.
+                            </p>
+                            <button
+                                onClick={() => setSelectedDuration('All Durations')}
+                                className="mt-4 text-amber-600 font-medium hover:underline"
+                            >
+                                View all packages
+                            </button>
+                        </div>
+                    )}
+
                     {/* Trust Section */}
-                    <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
+                    <div className="mt-16 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                             <div>
                                 <div className="text-4xl font-bold text-amber-600 mb-2">100%</div>
-                                <div className="text-gray-700 font-medium">Satisfaction Guarantee</div>
+                                <div className="text-gray-700 dark:text-gray-300 font-medium">Satisfaction Guarantee</div>
                             </div>
                             <div>
                                 <div className="text-4xl font-bold text-amber-600 mb-2">24/7</div>
-                                <div className="text-gray-700 font-medium">Customer Support</div>
+                                <div className="text-gray-700 dark:text-gray-300 font-medium">Customer Support</div>
                             </div>
                             <div>
                                 <div className="text-4xl font-bold text-amber-600 mb-2">15+</div>
-                                <div className="text-gray-700 font-medium">Years of Experience</div>
+                                <div className="text-gray-700 dark:text-gray-300 font-medium">Years of Experience</div>
                             </div>
                         </div>
                     </div>
