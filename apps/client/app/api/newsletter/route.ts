@@ -34,8 +34,22 @@ export async function POST(request: Request) {
             `,
         });
 
-        // Optional: Notify Admin (You)
-        // await resend.emails.send({ ... });
+        // Notify Admin about new newsletter signup
+        await resend.emails.send({
+            from: 'Safari Adventures <onboarding@resend.dev>',
+            to: 'lewisindusa@gmail.com',
+            subject: '🎉 New Newsletter Subscriber',
+            html: `
+                <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h1>New Newsletter Signup! 📧</h1>
+                    <p>Someone just subscribed to your newsletter:</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Subscribed at:</strong> ${new Date().toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })}</p>
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+                    <p style="color: #666; font-size: 12px;">This is an automated notification from your Safari Adventures website.</p>
+                </div>
+            `,
+        });
 
         return NextResponse.json({ success: true });
     } catch (error) {

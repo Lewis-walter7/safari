@@ -247,7 +247,7 @@ export default function TermsAndConditionsPage() {
                                 <p><strong className="text-gray-900 dark:text-white">Safari Adventures Kenya</strong></p>
                                 <p>123 Safari Street, Nairobi, Kenya 00100</p>
                                 <p>Email: info@safariadventureskenya.com</p>
-                                <p>Phone: +254 702 075 876</p>
+                                <p>Phone: +254 702 075 876 / +254 713 091 092</p>
                             </div>
                         </div>
 

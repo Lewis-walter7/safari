@@ -87,7 +87,7 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Call Us</h3>
                                         <p className="text-gray-600 dark:text-gray-300 text-sm">
-                                            +254 702 075 876<br />
+                                            +254 702 075 876 / +254 713 091 092<br />
                                             Available 24/7
                                         </p>
                                     </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                             </div>
 
                             <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800/50 rounded-xl">
-                                <h3 className="font-heading font-semibold text-gray-900 mb-3">
+                                <h3 className="font-heading font-semibold text-gray-900 dark:text-white mb-3">
                                     Office Hours
                                 </h3>
                                 <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">

@@ -70,7 +70,7 @@ export default function RefundPolicyPage() {
                                 <li>Digital materials that have been accessed or downloaded (itineraries, guides, etc.)</li>
                                 <li>Transactions made using incorrect personal details provided by the user</li>
                                 <li>Change of mind after the cancellation period has passed</li>
-                                <li>Cancellations made less than 30 days before departure (100% fee applies - see Terms & Conditions)</li>
+                                <li>Cancellations made less than 14 days before departure (see Terms &amp; Conditions)</li>
                                 <li>No-shows or failure to join scheduled safari activities</li>
                                 <li>Services clearly marked as non-refundable at time of booking</li>
                             </ul>
@@ -145,10 +145,9 @@ export default function RefundPolicyPage() {
                                 Our cancellation policy determines refund eligibility:
                             </p>
                             <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-                                <li><strong className="text-gray-900 dark:text-white">90+ days before departure:</strong> 90% refund (10% cancellation fee)</li>
-                                <li><strong className="text-gray-900 dark:text-white">60-89 days before departure:</strong> 70% refund (30% cancellation fee)</li>
-                                <li><strong className="text-gray-900 dark:text-white">30-59 days before departure:</strong> 50% refund (50% cancellation fee)</li>
-                                <li><strong className="text-gray-900 dark:text-white">Less than 30 days:</strong> No refund (100% cancellation fee)</li>
+                                <li><strong className="text-gray-900 dark:text-white">30+ days before departure:</strong> 100% refund</li>
+                                <li><strong className="text-gray-900 dark:text-white">14-29 days before departure:</strong> 50% refund</li>
+                                <li><strong className="text-gray-900 dark:text-white">0-13 days before departure:</strong> No refund</li>
                             </ul>
                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mt-4">
                                 Late cancellations or no-shows will be charged fully. For complete details, refer to our Terms and Conditions.
@@ -189,7 +188,7 @@ export default function RefundPolicyPage() {
                                 </p>
                                 <div className="space-y-2 text-gray-600 dark:text-gray-300">
                                     <p>📧 <strong className="text-gray-900 dark:text-white">Email:</strong> support@safariadventureskenya.com</p>
-                                    <p>📞 <strong className="text-gray-900 dark:text-white">Phone:</strong> +254 702 075 876</p>
+                                    <p>📞 <strong className="text-gray-900 dark:text-white">Phone:</strong> +254 702 075 876 / +254 713 091 092</p>
                                     <p>🏢 <strong className="text-gray-900 dark:text-white">Office:</strong> 123 Safari Street, Nairobi, Kenya 00100</p>
                                     <p className="mt-4 text-sm italic">Available Monday - Friday, 8:00 AM - 6:00 PM EAT</p>
                                 </div>

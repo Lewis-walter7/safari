@@ -54,9 +54,9 @@ export default function TermsAndConditionsPage() {
 
                                 <p className="font-semibold text-gray-900 dark:text-white mt-6">Deposit Requirements:</p>
                                 <ul className="list-disc pl-6 space-y-2">
-                                    <li>30% deposit required to confirm booking</li>
-                                    <li>Full payment due 60 days before departure</li>
-                                    <li>Bookings made within 60 days require immediate full payment</li>
+                                    <li>30-50% deposit required to confirm booking</li>
+                                    <li>Full payment due 7 days before departure</li>
+                                    <li>Bookings made within 7 days require immediate full payment</li>
                                 </ul>
                             </div>
                         </div>
@@ -82,12 +82,11 @@ export default function TermsAndConditionsPage() {
                                 4. Cancellation Policy
                             </h2>
                             <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                                <p>Cancellation fees apply as follows:</p>
+                                <p>Cancellation refunds apply as follows:</p>
                                 <ul className="list-disc pl-6 space-y-2">
-                                    <li><strong className="text-gray-900 dark:text-white">90+ days before departure:</strong> 10% cancellation fee</li>
-                                    <li><strong className="text-gray-900 dark:text-white">60-89 days before departure:</strong> 30% cancellation fee</li>
-                                    <li><strong className="text-gray-900 dark:text-white">30-59 days before departure:</strong> 50% cancellation fee</li>
-                                    <li><strong className="text-gray-900 dark:text-white">Less than 30 days:</strong> 100% cancellation fee (no refund)</li>
+                                    <li><strong className="text-gray-900 dark:text-white">30+ days before departure:</strong> 100% refund</li>
+                                    <li><strong className="text-gray-900 dark:text-white">14-29 days before departure:</strong> 50% refund</li>
+                                    <li><strong className="text-gray-900 dark:text-white">0-13 days before departure:</strong> No refund</li>
                                 </ul>
                                 <p className="mt-4">
                                     All cancellations must be submitted in writing. We strongly recommend purchasing travel insurance.
@@ -126,6 +125,9 @@ export default function TermsAndConditionsPage() {
                                     <li>Meeting health requirements and vaccinations</li>
                                     <li>Having appropriate travel insurance</li>
                                     <li>Complying with customs and immigration regulations</li>
+                                    <li>Providing correct and accurate travel documents</li>
+                                    <li>Arriving on time for all scheduled activities</li>
+                                    <li>Following guide instructions at all times</li>
                                 </ul>
                                 <p className="mt-4">
                                     We can assist with visa applications but cannot guarantee approval. Costs for visas and permits are not included in safari prices.
@@ -159,6 +161,9 @@ export default function TermsAndConditionsPage() {
                                     <li>Acts as an agent for hotels, transportation, and other service providers</li>
                                     <li>Is not liable for acts, errors, or omissions of third-party suppliers</li>
                                     <li>Does not accept liability for loss, damage, injury, or delay</li>
+                                    <li>Is not liable for delays or cancellations of scheduled services</li>
+                                    <li>Is not liable for loss of personal items or belongings</li>
+                                    <li>Is not liable for medical expenses incurred during the safari</li>
                                     <li>Strongly recommends comprehensive travel insurance</li>
                                 </ul>
                                 <p className="mt-4 font-semibold text-gray-900 dark:text-white">
@@ -248,7 +253,7 @@ export default function TermsAndConditionsPage() {
                                     <p><strong className="text-gray-900 dark:text-white">Safari Adventures Kenya</strong></p>
                                     <p>123 Safari Street, Nairobi, Kenya 00100</p>
                                     <p>Email: info@safariadventureskenya.com</p>
-                                    <p>Phone: +254 702 075 876</p>
+                                    <p>Phone: +254 702 075 876 / +254 713 091 092</p>
                                 </div>
                             </div>
                         </div>
