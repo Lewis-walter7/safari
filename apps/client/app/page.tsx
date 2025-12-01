@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Button from './components/Button';
 import Link from 'next/link';
 import { destinations } from './data/destinations';
+import BestTimeCalendar from './components/BestTimeCalendar';
 
 // Sample data
 const featuredPackages = [
@@ -245,6 +246,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Best Time to Visit Calendar */}
+      <BestTimeCalendar />
 
       {/* FAQs */}
       <section className="section bg-gray-50 dark:bg-gray-900">

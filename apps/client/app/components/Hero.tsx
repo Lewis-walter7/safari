@@ -112,9 +112,9 @@ export default function Hero() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                    <Link href="#packages">
+                    <Link href="/plan-your-safari">
                         <Button variant="primary" className="text-lg px-8 py-4 shadow-lg hover:scale-105 transition-transform">
-                            Explore Safari Packages
+                            Plan My Trip
                         </Button>
                     </Link>
                     <Link href="#contact">
