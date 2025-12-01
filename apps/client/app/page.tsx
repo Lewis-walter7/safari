@@ -297,7 +297,7 @@ export default function HomePage() {
             Get a free, personalized quote today!
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="#packages">
+            <Link href="/packages">
               <Button variant="outline" className="bg-white text-gray-900 hover:bg-gray-100 border-white text-lg px-8 py-4 font-bold shadow-md">
                 Browse Safari Packages
               </Button>
