@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import { packages } from '../data/packages';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
+        package: '',
         destination: '',
         travelDates: '',
         groupSize: '',
@@ -17,20 +19,80 @@ export default function ContactPage() {
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [dateError, setDateError] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const validateDate = (dateString: string): boolean => {
+        if (!dateString) return true; // Allow empty dates since it's optional
+
+        const selectedDate = new Date(dateString);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+            setDateError('Travel date cannot be in the past');
+            return false;
+        }
+
+        setDateError('');
+        return true;
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Form submission logic would go here
-        console.log('Form submitted:', formData);
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
+
+        // Validate date before submission
+        if (!validateDate(formData.travelDates)) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSubmitted(true);
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    package: '',
+                    destination: '',
+                    travelDates: '',
+                    groupSize: '',
+                    message: '',
+                });
+                setDateError('');
+                setTimeout(() => setSubmitted(false), 5000);
+            } else {
+                alert('Something went wrong. Please try again or call us directly.');
+            }
+        } catch (error) {
+            console.error('Error submitting contact form:', error);
+            alert('Something went wrong. Please try again or call us directly.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         });
+
+        // Validate date field on change
+        if (name === 'travelDates') {
+            validateDate(value);
+        }
     };
 
     return (
@@ -195,6 +257,29 @@ export default function ContactPage() {
                                         </div>
 
                                         <div>
+                                            <label htmlFor="package" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                                Safari Package
+                                            </label>
+                                            <select
+                                                id="package"
+                                                name="package"
+                                                value={formData.package}
+                                                onChange={handleChange}
+                                                className="input"
+                                            >
+                                                <option value="">Select a package</option>
+                                                <option value="Custom Package">Custom Package</option>
+                                                {packages.map((pkg) => (
+                                                    <option key={pkg.id} value={pkg.title}>
+                                                        {pkg.title}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
                                             <label htmlFor="destination" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                                 Preferred Destination
                                             </label>
@@ -219,17 +304,22 @@ export default function ContactPage() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label htmlFor="travelDates" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                                Preferred Travel Dates
+                                                Preferred Travel Date
                                             </label>
                                             <input
-                                                type="text"
+                                                type="date"
                                                 id="travelDates"
                                                 name="travelDates"
                                                 value={formData.travelDates}
                                                 onChange={handleChange}
-                                                className="input"
-                                                placeholder="e.g., July 2025"
+                                                min={new Date().toISOString().split('T')[0]}
+                                                className={`input ${dateError ? 'border-red-500 dark:border-red-500' : ''}`}
                                             />
+                                            {dateError && (
+                                                <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                                                    {dateError}
+                                                </p>
+                                            )}
                                         </div>
 
                                         <div>
@@ -263,8 +353,13 @@ export default function ContactPage() {
                                         />
                                     </div>
 
-                                    <Button type="submit" variant="primary" className="w-full text-lg py-4">
-                                        Send Inquiry
+                                    <Button
+                                        type="submit"
+                                        variant="primary"
+                                        className="w-full text-lg py-4"
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                                     </Button>
 
                                     <p className="text-sm text-gray-600 dark:text-gray-400 text-center">

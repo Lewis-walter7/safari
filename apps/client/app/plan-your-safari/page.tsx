@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import { packages } from '../data/packages';
 
 type Step = 'when' | 'who' | 'what' | 'budget' | 'contact' | 'success';
 
 interface FormData {
     month: string;
     year: string;
+    package: string;
     travelers: string;
     travelerType: string;
     interests: string[];
@@ -36,6 +38,7 @@ export default function PlanYourSafariPage() {
     const [formData, setFormData] = useState<FormData>({
         month: '',
         year: new Date().getFullYear().toString(),
+        package: '',
         travelers: '2',
         travelerType: 'Couple',
         interests: [],
@@ -149,11 +152,27 @@ export default function PlanYourSafariPage() {
                                     onChange={(e) => updateField('year', e.target.value)}
                                     className="input w-full"
                                 >
-                                    {[2024, 2025, 2026].map((y) => (
+                                    {[2025, 2026].map((y) => (
                                         <option key={y} value={y}>{y}</option>
                                     ))}
                                 </select>
                             </div>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Safari Package</label>
+                            <select
+                                value={formData.package}
+                                onChange={(e) => updateField('package', e.target.value)}
+                                className="input w-full"
+                            >
+                                <option value="">Select a package</option>
+                                <option value="Custom Package">Custom Package</option>
+                                {packages.map((pkg) => (
+                                    <option key={pkg.id} value={pkg.title}>
+                                        {pkg.title}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                         {isDateInPast() && (
                             <div className="flex items-start gap-3 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
@@ -189,7 +208,14 @@ export default function PlanYourSafariPage() {
                                     <button
                                         key={type}
                                         type="button"
-                                        onClick={() => updateField('travelerType', type)}
+                                        onClick={() => {
+                                            updateField('travelerType', type);
+                                            if (type === 'Solo') {
+                                                updateField('travelers', '1');
+                                            } else {
+                                                updateField('travelers', '2');
+                                            }
+                                        }}
                                         className={`p-4 rounded-lg border-2 transition-all ${formData.travelerType === type
                                             ? 'border-amber-600 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400'
                                             : 'border-gray-200 dark:border-gray-700 hover:border-amber-300 dark:hover:border-amber-700'
